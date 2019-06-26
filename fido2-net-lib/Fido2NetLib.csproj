@@ -10,6 +10,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <LangVersion>latest</LangVersion>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -24,16 +25,52 @@
     <PackageLicenseUrl>https://github.com/abergs/fido2-net-lib/blob/master/LICENSE.txt</PackageLicenseUrl>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType></DebugType>
+  </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.2.4" />
-    <PackageReference Include="System.Memory" Version="4.5.1" />
-    <PackageReference Include="System.Net.Http" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.5.0" />
+    <PackageReference Include="System.Memory" Version="4.5.3" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
     <PackageReference Include="System.Security.Cryptography.Cng" Version="4.5.0" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta-63127-02" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.NETCore.Platforms" Version="2.2.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="build/fido2.targets" PackagePath="build/" />
+    <None Remove="build\LibGit2Sharp.0.26.0\.signature.p7s" />
+    <None Remove="build\LibGit2Sharp.0.26.0\LibGit2Sharp.0.26.0.nupkg" />
+    <None Remove="build\LibGit2Sharp.0.26.0\App_Readme\CHANGES.md" />
+    <None Remove="build\LibGit2Sharp.0.26.0\App_Readme\LICENSE.md" />
+    <None Remove="build\LibGit2Sharp.0.26.0\App_Readme\README.md" />
+    <None Remove="build\LibGit2Sharp.0.26.0\lib\net46\LibGit2Sharp.dll" />
+    <None Remove="build\LibGit2Sharp.0.26.0\lib\net46\LibGit2Sharp.pdb" />
+    <None Remove="build\LibGit2Sharp.0.26.0\lib\net46\LibGit2Sharp.xml" />
+    <None Remove="build\LibGit2Sharp.0.26.0\lib\netstandard2.0\LibGit2Sharp.dll" />
+    <None Remove="build\LibGit2Sharp.0.26.0\lib\netstandard2.0\LibGit2Sharp.pdb" />
+    <None Remove="build\LibGit2Sharp.0.26.0\lib\netstandard2.0\LibGit2Sharp.xml" />
+    <None Remove="build\LibGit2Sharp.NativeBinaries.2.0.267\LibGit2Sharp.NativeBinaries.2.0.267.nupkg" />
+    <None Remove="build\LibGit2Sharp.NativeBinaries.2.0.267\libgit2\LibGit2Sharp.dll.config" />
+    <None Remove="build\LibGit2Sharp.NativeBinaries.2.0.267\libgit2\libgit2.license.txt" />
+    <None Remove="build\LibGit2Sharp.NativeBinaries.2.0.267\libgit2\libgit2_hash.txt" />
+    <None Remove="build\LibGit2Sharp.NativeBinaries.2.0.267\build\LibGit2Sharp.NativeBinaries.props" />
+    <None Remove="build\LibGit2Sharp.NativeBinaries.2.0.267\build\net46\LibGit2Sharp.NativeBinaries.props" />
+    <None Remove="build\LibGit2Sharp.NativeBinaries.2.0.267\.signature.p7s" />
+    <None Remove="build\LibGit2Sharp.NativeBinaries.2.0.267\buildMultiTargeting\LibGit2Sharp.NativeBinaries.props" />
+    <None Remove="build\LibGit2Sharp.NativeBinaries.2.0.267\buildMultiTargeting\net46\LibGit2Sharp.NativeBinaries.props" />
+    <None Remove="build\LibGit2Sharp.NativeBinaries.2.0.267\runtimes\alpine-x64\native\libgit2-572e4d8.so" />
+    <None Remove="build\LibGit2Sharp.NativeBinaries.2.0.267\runtimes\debian.9-x64\native\libgit2-572e4d8.so" />
+    <None Remove="build\LibGit2Sharp.NativeBinaries.2.0.267\runtimes\fedora-x64\native\libgit2-572e4d8.so" />
+    <None Remove="build\LibGit2Sharp.NativeBinaries.2.0.267\runtimes\linux-x64\native\libgit2-572e4d8.so" />
+    <None Remove="build\LibGit2Sharp.NativeBinaries.2.0.267\runtimes\osx\native\libgit2-572e4d8.dylib" />
+    <None Remove="build\LibGit2Sharp.NativeBinaries.2.0.267\runtimes\rhel-x64\native\libgit2-572e4d8.so" />
+    <None Remove="build\LibGit2Sharp.NativeBinaries.2.0.267\runtimes\ubuntu.18.04-x64\native\libgit2-572e4d8.so" />
+    <None Remove="build\LibGit2Sharp.NativeBinaries.2.0.267\runtimes\win-x64\native\git2-572e4d8.dll" />
+    <None Remove="build\LibGit2Sharp.NativeBinaries.2.0.267\runtimes\win-x64\native\git2-572e4d8.pdb" />
+    <None Remove="build\LibGit2Sharp.NativeBinaries.2.0.267\runtimes\win-x86\native\git2-572e4d8.dll" />
+    <None Remove="build\LibGit2Sharp.NativeBinaries.2.0.267\runtimes\win-x86\native\git2-572e4d8.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="build\" />
   </ItemGroup>
 </Project>

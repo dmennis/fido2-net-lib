@@ -42,7 +42,7 @@ namespace Fido2Demo
             _lib = new Fido2(new Fido2.Configuration()
             {
                 ServerDomain = config["fido2:serverDomain"],
-                ServerName = "Fido2 test",
+                ServerName = "WebAuthn test",
                 Origin = _origin,
                 MetadataService = _mds
             });

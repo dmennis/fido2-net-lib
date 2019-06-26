@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Linq;
-using PeterO.Cbor;
+using PeterO.Cbor; // Concise Binary Object Representation, a general purpose binary data format (RFC 7049)
 
 namespace Fido2NetLib
 {
     /// <summary>
     /// Helper functions that implements https://w3c.github.io/webauthn/#authenticator-data
+    /// Encodes contextual bindings made by and controlled by the authenticator (client). This RP receives this data from the authenticator
+    /// and uses its knowledge of the authenticator to make trust decisions.
     /// </summary>
     public static class AuthDataHelper
     {
@@ -88,7 +90,11 @@ namespace Fido2NetLib
         public bool AttestedCredentialDataPresent { get { return ((Flags & (1 << (int) authDataFlags.AT)) != 0); } }
         public bool ExtensionsPresent { get { return ((Flags & (1 << (int) authDataFlags.ED)) != 0); } }
     }
-    // https://www.w3.org/TR/webauthn/#sec-attested-credential-data
+    /// <summary>
+    /// https://www.w3.org/TR/webauthn/#sec-attested-credential-data
+    /// Attested credential data is a variable-length byte [] added to the "authenticator data" when generating
+    /// an "attestation object" for a given credential. 
+    /// </summary>
     public class AttestedCredentialData
     {
         public static Guid FromBigEndian(byte[] Aaguid)
